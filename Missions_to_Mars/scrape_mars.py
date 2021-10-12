@@ -50,13 +50,13 @@ def scrape():
     mars_fact_df = mars_fact_df[1:]
     mars_fact_df.columns = new_header 
     #Remove Earth Data
-    mars_fact_df =mars_fact_df[['Mars - Earth Comparison', 'Mars']]
+    #mars_fact_df =mars_fact_df[['Mars - Earth Comparison', 'Mars']]
     #Rename columns
-    mars_fact_df.rename(columns = {'Mars - Earth Comparison':'Mars Fact', 'Mars':'Value'}, inplace = True)
+    mars_fact_df.rename(columns = {'Mars - Earth Comparison':''}, inplace = True)
     mars_fact_df
     #Remove ":"
-    facts = pd.Series(mars_fact_df['Mars Fact'])
-    mars_fact_df['Mars Fact'] = facts.str.strip(':')
+    facts = pd.Series(mars_fact_df[''])
+    mars_fact_df[''] = facts.str.strip(':')
     mars_fact_df
     #Convert the data to a HTML table string
     fact_html_table = mars_fact_df.to_html()
